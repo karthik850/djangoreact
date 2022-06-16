@@ -1,0 +1,23 @@
+{% extends "user/base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+<div style="background-color:rgb(2, 2, 2);height:50vw;overflow:hidden;">
+  <div id="login"
+    style="box-shadow:2px 2px 2px black;background-color: #dce9db;opacity:0.8; position:absolute;top:5%;left:10%;border:1px solid white;border-radius:10px 15px;">
+    <form method="POST" style="margin:5%;">
+      {% csrf_token %}
+      {{form|crispy}}
+      <button type="submit" class="btn btn-success" style=" border:none;">Signup</button>
+    </form>
+    <p style="font-size:16px;margin:5%;">If you don't have an account please <a
+        href="{% url 'login' %}"><strong>Login</strong></a> here</p>
+  </div>
+  <br>
+  <br>
+</div>
+
+{% endblock content %}
